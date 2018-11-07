@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoremPicsumApiService } from '../lorem-picsum-api.service';
+import { LoremPicsumApiService } from '../../services/lorem-picsum-api.service';
 import { isNgTemplate } from '@angular/compiler';
 
 @Component({
@@ -8,7 +8,7 @@ import { isNgTemplate } from '@angular/compiler';
   styleUrls: ['./photo-gallery.component.css']
 })
 export class PhotoGalleryComponent implements OnInit {
-  photos: Array<object> = [];
+  photos: Object = {};
   myPhotos: Array<object> = [];
 
   constructor(private loremPicsumApiService: LoremPicsumApiService) {}
@@ -20,7 +20,7 @@ export class PhotoGalleryComponent implements OnInit {
   public getPhotos() {
     this.loremPicsumApiService.getPhotos().subscribe(response => {
       this.photos = response;
-      console.log(this.photos[1].author);
+      console.log(response[0].author);
       for (let i = 0; i < this.photos.length; i++) {
         if (this.photos[i].author === 'Alejandro Escamilla') {
           this.myPhotos.push(this.photos[i]);
