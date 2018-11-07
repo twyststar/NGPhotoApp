@@ -1,5 +1,7 @@
 .gallery-container {
   margin-top: 130px;
+  margin-bottom: 70px;
+  min-height: 600px;
   padding: 3%;
   display: flex;
   flex-wrap: wrap;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoremPicsumApiService } from '../../services/lorem-picsum-api.service';
-import { isNgTemplate } from '@angular/compiler';
+// import { isNgTemplate } from '@angular/compiler';
+import { NgxSmartModalService} from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -8,10 +9,13 @@ import { isNgTemplate } from '@angular/compiler';
   styleUrls: ['./photo-gallery.component.css']
 })
 export class PhotoGalleryComponent implements OnInit {
-  photos: Object = {};
+  photos: Array<object> = [];
   myPhotos: Array<object> = [];
 
-  constructor(private loremPicsumApiService: LoremPicsumApiService) {}
+  constructor(
+    private loremPicsumApiService: LoremPicsumApiService,
+    public ngxSmartModalService: NgxSmartModalService
+  ) {}
 
   ngOnInit() {
     this.getPhotos();
@@ -20,7 +24,6 @@ export class PhotoGalleryComponent implements OnInit {
   public getPhotos() {
     this.loremPicsumApiService.getPhotos().subscribe(response => {
       this.photos = response;
-      console.log(response[0].author);
       for (let i = 0; i < this.photos.length; i++) {
         if (this.photos[i].author === 'Alejandro Escamilla') {
           this.myPhotos.push(this.photos[i]);
@@ -30,4 +33,7 @@ export class PhotoGalleryComponent implements OnInit {
     });
   }
 
+  public clicked(id) {
+    console.log('clicked ' + id);
+  }
 }

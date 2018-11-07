@@ -1,7 +1,12 @@
 <div class="gallery-container">
   <div *ngFor="let photo of myPhotos">
-    <img src="https://picsum.photos/200/300?image={{photo.id}}" alt="stock photo">
+  <button (click)="ngxSmartModalService.getModal('photoModal').open()" (click)="clicked(photo.id)"><img src="https://picsum.photos/200/300?image={{photo.id}}" alt="stock photo"></button>
   </div>
+  <ngx-smart-modal #photoModal identifier="photoModal">
+    <h1>Title</h1>
+    <p>Some stuff...</p>
+    <button (click)="photoModal.close()">Close</button>
+  </ngx-smart-modal>
 </div>
 
 

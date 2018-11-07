@@ -9,6 +9,6 @@ export class LoremPicsumApiService {
   constructor(private http: HttpClient) { }
 
   getPhotos() {
-    return this.http.get(`https://picsum.photos/list`);
+    return this.http.get<Object[]>(`https://picsum.photos/list`);
   }
 }
