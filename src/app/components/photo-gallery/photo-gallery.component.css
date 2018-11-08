@@ -35,8 +35,26 @@
   width: 100%;
 }
 
+.modal-controls {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .modal-controls button {
   margin-top: 2%;
   border-radius: 3px;
   padding: 1% 3%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.prev-btn {}
+
+.close-btn {
+  margin: auto;
+}
+
+.next-btn {
+
 }

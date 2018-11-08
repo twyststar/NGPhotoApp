@@ -31,16 +31,13 @@ export class PhotoGalleryComponent implements OnInit {
           this.aePhotos.push(this.photos[i]);
         }
       }
-      console.log(this.aePhotos);
     });
   }
 
   public findPhoto(index) {
-    console.log('clicked ' + index);
     this.currentPhoto = this.aePhotos[index].id;
     this.currentIndex = index;
     this.ngxSmartModalService.setModalData(index, 'photoModal');
-    console.log('set modal to ' + index);
   }
 
   public nextPhoto() {
