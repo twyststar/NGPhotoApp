@@ -9,8 +9,8 @@ import { NgxSmartModalService} from 'ngx-smart-modal';
   styleUrls: ['./photo-gallery.component.css']
 })
 export class PhotoGalleryComponent implements OnInit {
-  photos: Array<object> = [];
-  myPhotos: Array<object> = [];
+  photos: Array<any> = [];
+  aePhotos: Array<any> = [];
   currentPhoto: number;
   currentIndex: number;
 
@@ -28,31 +28,34 @@ export class PhotoGalleryComponent implements OnInit {
       this.photos = response;
       for (let i = 0; i < this.photos.length; i++) {
         if (this.photos[i].author === 'Alejandro Escamilla') {
-          this.myPhotos.push(this.photos[i]);
+          this.aePhotos.push(this.photos[i]);
         }
       }
-      console.log(this.myPhotos);
+      console.log(this.aePhotos);
     });
   }
 
   private findPhoto(index) {
     console.log('clicked ' + index);
-    this.currentPhoto = this.myPhotos[index].id;
+    this.currentPhoto = this.aePhotos[index].id;
     this.currentIndex = index;
     this.ngxSmartModalService.setModalData(index, 'photoModal');
     console.log('set modal to ' + index);
   }
 
   private nextPhoto() {
-    if (this.currentIndex > this.myPhotos.length - 1) {
-      this.currentIndex = 0;
-    } else {
-      this.currentIndex = this.currentIndex + 1;
-    }
-    this.currentPhoto = this.myPhotos[this.currentIndex].id;
+    this.currentIndex =
+      this.currentIndex === this.aePhotos.length - 1 ?
+      (this.currentIndex = 0) :
+      (this.currentIndex = this.currentIndex + 1);
+    this.currentPhoto = this.aePhotos[this.currentIndex].id;
   }
 
-  // private prevPhoto(index) {
-
-  // }
+  private prevPhoto() {
+    this.currentIndex =
+      this.currentIndex === 0 ?
+      (this.currentIndex = this.aePhotos.length - 1) :
+      (this.currentIndex = this.currentIndex - 1);
+    this.currentPhoto = this.aePhotos[this.currentIndex].id;
+  }
 }
