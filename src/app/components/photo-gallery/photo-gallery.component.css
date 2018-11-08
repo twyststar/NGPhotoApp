@@ -11,3 +11,10 @@
 .gallery-container div {
   flex-basis: 25%;
 }
+
+/* Modal styles */
+
+.modalControls button {
+  border-radius: 3px;
+  padding: 1% 3%;
+}

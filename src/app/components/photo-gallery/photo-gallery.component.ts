@@ -11,6 +11,8 @@ import { NgxSmartModalService} from 'ngx-smart-modal';
 export class PhotoGalleryComponent implements OnInit {
   photos: Array<object> = [];
   myPhotos: Array<object> = [];
+  currentPhoto: number;
+  currentIndex: number;
 
   constructor(
     private loremPicsumApiService: LoremPicsumApiService,
@@ -33,7 +35,24 @@ export class PhotoGalleryComponent implements OnInit {
     });
   }
 
-  public clicked(id) {
-    console.log('clicked ' + id);
+  private findPhoto(index) {
+    console.log('clicked ' + index);
+    this.currentPhoto = this.myPhotos[index].id;
+    this.currentIndex = index;
+    this.ngxSmartModalService.setModalData(index, 'photoModal');
+    console.log('set modal to ' + index);
   }
+
+  private nextPhoto() {
+    if (this.currentIndex > this.myPhotos.length - 1) {
+      this.currentIndex = 0;
+    } else {
+      this.currentIndex = this.currentIndex + 1;
+    }
+    this.currentPhoto = this.myPhotos[this.currentIndex].id;
+  }
+
+  // private prevPhoto(index) {
+
+  // }
 }

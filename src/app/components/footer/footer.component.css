@@ -25,3 +25,5 @@
 .footer-links a:visited {
   color: #eab0fc;
 }
+
+/* Needs media query for phone - links stack badly*/
