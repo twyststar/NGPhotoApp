@@ -35,7 +35,7 @@ export class PhotoGalleryComponent implements OnInit {
     });
   }
 
-  private findPhoto(index) {
+  public findPhoto(index) {
     console.log('clicked ' + index);
     this.currentPhoto = this.aePhotos[index].id;
     this.currentIndex = index;
@@ -43,7 +43,7 @@ export class PhotoGalleryComponent implements OnInit {
     console.log('set modal to ' + index);
   }
 
-  private nextPhoto() {
+  public nextPhoto() {
     this.currentIndex =
       this.currentIndex === this.aePhotos.length - 1 ?
       (this.currentIndex = 0) :
@@ -51,7 +51,7 @@ export class PhotoGalleryComponent implements OnInit {
     this.currentPhoto = this.aePhotos[this.currentIndex].id;
   }
 
-  private prevPhoto() {
+  public prevPhoto() {
     this.currentIndex =
       this.currentIndex === 0 ?
       (this.currentIndex = this.aePhotos.length - 1) :

@@ -1,16 +1,16 @@
 <div class="gallery-container">
   <div *ngFor="let photo of aePhotos, let i = index">
-  <button (click)="ngxSmartModalService.getModal('photoModal').open()" (click)="findPhoto(i)"><img src="https://picsum.photos/300/200?image={{photo.id}}" alt="stock photo"></button>
+  <button (click)="ngxSmartModalService.getModal('photoModal').open()" (click)="findPhoto(i)"><img src="https://picsum.photos/300/200?image={{photo.id}}" alt="enlarge image"></button>
   </div>
-  <ngx-smart-modal #photoModal identifier="photoModal">
-    <h2>Photo id is {{currentPhoto}}</h2>
-    <img src="https://picsum.photos/300/500?image={{currentPhoto}}" alt="stock photo">
-    <div class="modalControls">
-      <button class="previous-btn" (click)="prevPhoto()">Prev</button>
-      <button class="close-btn" (click)="photoModal.close()">Close</button>
-      <button class="next-btn" (click)="nextPhoto()">Next</button>
-    </div>
-  </ngx-smart-modal>
-</div>
 
+</div>
+<ngx-smart-modal #photoModal identifier="photoModal" class="modal-container">
+  <label>Photo id is {{currentPhoto}}</label>
+  <img class="modal-image" src="https://picsum.photos/750/450?image={{currentPhoto}}" alt="">
+  <div class="modal-controls">
+    <button class="previous-btn" (click)="prevPhoto()">Prev</button>
+    <button class="close-btn" (click)="photoModal.close()">Close</button>
+    <button class="next-btn" (click)="nextPhoto()">Next</button>
+  </div>
+</ngx-smart-modal>
 
