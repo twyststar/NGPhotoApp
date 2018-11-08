@@ -7,8 +7,8 @@
 
 </div>
 <ngx-smart-modal #photoModal identifier="photoModal" class="modal-container">
-  <label>Photo id is {{currentPhoto}}</label>
-  <img class="modal-image" src="https://picsum.photos/750/450?image={{currentPhoto}}" alt="">
+  <label>Photo #{{currentPhoto}}</label>
+  <img class="modal-image" src="https://picsum.photos/750/450?image={{currentPhoto}}" alt="stock photo">
   <div class="modal-controls">
     <button class="prev-btn" (click)="prevPhoto()">Prev</button>
     <button class="close-btn" (click)="photoModal.close()">Close</button>
