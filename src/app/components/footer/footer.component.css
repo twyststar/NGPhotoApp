@@ -1,5 +1,5 @@
 .footer-container {
-  height: 70px;
+  height: 5rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -13,6 +13,7 @@
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 2%;
   justify-content: space-evenly;
@@ -25,5 +26,3 @@
 .footer-links a:visited {
   color: #eab0fc;
 }
-
-/* Needs media query for phone - links stack badly*/

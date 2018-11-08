@@ -1,6 +1,8 @@
 <div class="gallery-container">
   <div *ngFor="let photo of aePhotos, let i = index">
-  <button (click)="ngxSmartModalService.getModal('photoModal').open()" (click)="findPhoto(i)"><img src="https://picsum.photos/300/200?image={{photo.id}}" alt="enlarge image"></button>
+  <button (click)="ngxSmartModalService.getModal('photoModal').open()" (click)="findPhoto(i)">
+    <img src="https://picsum.photos/300/200?image={{photo.id}}" alt="enlarge image">
+  </button>
   </div>
 
 </div>
